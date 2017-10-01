@@ -17,7 +17,7 @@ mvn spring-boot:run
 ```
 ## Java standalone executable
 ```
-mvn package
+mvn clean package 
 java -jar target/n26-statistics-ws-0.0.1-SNAPSHOT.jar
 ```
 ## Application End Points 
