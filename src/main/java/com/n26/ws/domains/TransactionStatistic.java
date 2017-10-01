@@ -2,6 +2,7 @@ package com.n26.ws.domains;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.n26.ws.utils.JsonSnakeStretegy;
 import org.immutables.value.Value;
 
 /**
@@ -9,6 +10,7 @@ import org.immutables.value.Value;
  * @since 0.0.1
  */
 @Value.Immutable
+@JsonSnakeStretegy
 @JsonSerialize(as = ImmutableTransactionStatistic.class)
 @JsonDeserialize(as = ImmutableTransactionStatistic.class)
 public interface TransactionStatistic {

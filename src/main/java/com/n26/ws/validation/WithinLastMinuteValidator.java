@@ -12,8 +12,7 @@ import javax.validation.ConstraintValidatorContext;
  */
 public class WithinLastMinuteValidator implements ConstraintValidator<WithinLast, Long> {
 
-    @VisibleForTesting
-    private static Supplier<Long> CURRENT_MILLIS = System::currentTimeMillis;
+    public static Supplier<Long> CURRENT_MILLIS = System::currentTimeMillis;
 
     private WithinLast annotation;
 

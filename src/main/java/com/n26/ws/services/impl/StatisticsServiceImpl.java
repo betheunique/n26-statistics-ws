@@ -2,6 +2,7 @@ package com.n26.ws.services.impl;
 
 import java.util.DoubleSummaryStatistics;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.n26.ws.domains.Transaction;
 import com.n26.ws.domains.TransactionStatistic;
 import com.n26.ws.services.StatisticsService;

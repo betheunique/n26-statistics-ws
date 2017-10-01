@@ -34,6 +34,7 @@ Request Body:
 ```
 
 Where:
+````
 ● amount - transaction amount
 ● timestamp - transaction time in epoch in millis in UTC time zone (this is not current
 timestamp)
@@ -44,6 +45,7 @@ Response: Empty body with either 201 or 204.
 Where:
 ● amount is a double specifying the amount
 ● time is a long specifying unix time format in milliseconds
+````
 ````
 GET /v1/statistics
 ````
@@ -59,10 +61,13 @@ Response:
 }
 ```
 Where:
+```
 ● sum is a double specifying the total sum of transaction value in the last 60 seconds
+
 ● avg is a double specifying the average amount of transaction value in the last 60
 seconds
 ● max is a double specifying single highest transaction value in the last 60 seconds
 ● min is a double specifying single lowest transaction value in the last 60 seconds
 ● count is a long specifying the total number of transactions happened in the last 60
 seconds.
+```

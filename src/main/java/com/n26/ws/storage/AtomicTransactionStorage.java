@@ -50,7 +50,7 @@ public class AtomicTransactionStorage<T> implements TransactionStorage<T> {
              64, factory, System::currentTimeMillis);
     }
 
-    private AtomicTransactionStorage(TemporalUnit targetUnit,
+    public AtomicTransactionStorage(TemporalUnit targetUnit,
                                  TemporalUnit groupingUnit,
                                  int bufferSize,
                                  Supplier<T> factory,
@@ -84,7 +84,7 @@ public class AtomicTransactionStorage<T> implements TransactionStorage<T> {
      * @param timestamp the transaction timestamp
      * @return {@link Reference<T>}
      */
-    private Reference<T> getReference(long timestamp) {
+    public Reference<T> getReference(long timestamp) {
         int index = checkedIndexFor(timestamp);
         int offset = offset(index);
         return dataStore.updateAndGet(offset, value -> actual(index, value));
