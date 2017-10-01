@@ -18,7 +18,7 @@ mvn spring-boot:run
 ## Java standalone executable
 ```
 mvn package
-java -jar target/java-api-guidelines.jar
+java -jar target/n26-statistics-ws-0.0.1-SNAPSHOT.jar
 ```
 ## Application End Points 
 ````
@@ -71,3 +71,9 @@ seconds
 ● count is a long specifying the total number of transactions happened in the last 60
 seconds.
 ```
+
+## Cobertura Code Coverage
+```
+mvn cobertura:cobertura
+```
+Code Coverage result will be in target/site/index.html
