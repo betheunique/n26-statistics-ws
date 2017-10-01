@@ -2,6 +2,7 @@ package com.n26.ws.controllers;
 
 import java.util.DoubleSummaryStatistics;
 
+import com.n26.ws.domains.TransactionStatistic;
 import com.n26.ws.services.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class StatisticsController {
 
     @RequestMapping("/statistics")
     @GetMapping(produces = "application/json")
-    public DoubleSummaryStatistics getTransactionStatistics() {
+    public TransactionStatistic getTransactionStatistics() {
         return statisticsService.getTransactionStatistics();
     }
 }

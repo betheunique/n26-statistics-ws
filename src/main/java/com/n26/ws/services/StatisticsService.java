@@ -3,6 +3,7 @@ package com.n26.ws.services;
 import java.util.DoubleSummaryStatistics;
 
 import com.n26.ws.domains.Transaction;
+import com.n26.ws.domains.TransactionStatistic;
 
 /**
  * @author abhishekrai
@@ -12,5 +13,5 @@ import com.n26.ws.domains.Transaction;
 public interface StatisticsService {
     void record(Transaction transaction);
 
-    DoubleSummaryStatistics getTransactionStatistics();
+    TransactionStatistic getTransactionStatistics();
 }

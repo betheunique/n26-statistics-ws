@@ -3,16 +3,15 @@ package com.n26.ws.storage;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
-import java.util.DoubleSummaryStatistics;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
-
 import com.n26.ws.exceptions.InvalidTimestampException;
 
 import static java.time.temporal.ChronoUnit.MILLIS;
@@ -70,11 +69,12 @@ public class AtomicTransactionStorage<T> implements TransactionStorage<T> {
 
 
     @Override
-    @SuppressWarnings("unchecked")
-    public DoubleSummaryStatistics getStatistics() {
-        return getReferenceStream().mapToDouble(value -> (Double)value).collect(DoubleSummaryStatistics::new,
+    public T getStatistics(BinaryOperator<T> reducer) {
+        // DoubleSummaryStatistics is not working in multiple transaction with same timestamp.
+        /*return getReferenceStream().mapToDouble(value -> (Double)value).collect(DoubleSummaryStatistics::new,
                                                                                 DoubleSummaryStatistics::accept,
-                                                                                DoubleSummaryStatistics::combine);
+                                                                                DoubleSummaryStatistics::combine); */
+        return getReferenceStream().reduce(factory.get(), reducer);
     }
 
     /**
