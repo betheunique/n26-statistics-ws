@@ -8,7 +8,7 @@ them is called every time a transaction is made. It is also the sole input of th
 API. The other one returns the statistic based of the transactions of the last 60.
 
 ## How to run
-You can run the application from Maven. To build the application you will need Maven and Java8. After few seconds the application should be available, for example http://localhost:8080/v1/statistics.
+You can run the application from Maven. To build the application you will need Maven and Java8. After few seconds the application should be available, for example http://localhost:8080/statistics.
 
 ### Maven
 Form the repository base folder run:
@@ -22,7 +22,7 @@ java -jar target/n26-statistics-ws-0.0.1-SNAPSHOT.jar
 ```
 ## Application End Points 
 ````
-POST /v1/transactions
+POST /transactions
 ````
 Every Time a new transaction happened, this endpoint will be called.
 ```
@@ -47,7 +47,7 @@ Where:
 ● time is a long specifying unix time format in milliseconds
 ````
 ````
-GET /v1/statistics
+GET /statistics
 ````
 This returns statistics of last 60 seconds transactions.
 ```
@@ -77,3 +77,8 @@ seconds.
 mvn cobertura:cobertura
 ```
 Code Coverage result will be in target/site/index.html
+
+## Swagger 
+```
+localhost:8080/swagger-ui.html#/
+```

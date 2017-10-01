@@ -1,12 +1,10 @@
 package com.n26.ws.controllers;
 
-import java.util.DoubleSummaryStatistics;
-
 import com.n26.ws.domains.TransactionStatistic;
 import com.n26.ws.services.StatisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 0.0.1
  */
 @RestController
-@RequestMapping("/v1")
 public class StatisticsController {
 
     private final StatisticsService statisticsService;
@@ -25,8 +22,7 @@ public class StatisticsController {
         this.statisticsService = statisticsService;
     }
 
-    @RequestMapping("/statistics")
-    @GetMapping(produces = "application/json")
+    @RequestMapping(value = "/statistics", method = RequestMethod.GET, produces = "application/json")
     public TransactionStatistic getTransactionStatistics() {
         return statisticsService.getTransactionStatistics();
     }

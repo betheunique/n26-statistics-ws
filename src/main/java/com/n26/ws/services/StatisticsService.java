@@ -1,7 +1,5 @@
 package com.n26.ws.services;
 
-import java.util.DoubleSummaryStatistics;
-
 import com.n26.ws.domains.Transaction;
 import com.n26.ws.domains.TransactionStatistic;
 

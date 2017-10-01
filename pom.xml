@@ -40,11 +40,6 @@
       <artifactId>jsr305</artifactId>
       <version>${jsr305.version}</version>
     </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-    </dependency>
 
     <!--LOGGER-->
     <dependency>
@@ -60,6 +55,21 @@
       <artifactId>cobertura-maven-plugin</artifactId>
       <version>${cobertura.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <!--SWAGGER2-->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>2.6.1</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>2.6.1</version>
+      <scope>compile</scope>
     </dependency>
 
 
