@@ -42,7 +42,7 @@ public class TransactionsControllerTest {
 
     @Test
     public void shouldAcceptValidRequest() throws Exception {
-        mvc.perform(post("/v1/transactions")
+        mvc.perform(post("/transactions")
                             .contentType("application/json")
                             .content("{\"amount\": 12.3,\"timestamp\": 1478192204000}"))
                 .andExpect(status().isCreated())
@@ -53,7 +53,7 @@ public class TransactionsControllerTest {
 
     @Test
     public void shouldValidateRequest() throws Exception {
-        mvc.perform(post("/v1/transactions")
+        mvc.perform(post("/transactions")
                             .contentType("application/json")
                             .content("{\"timestamp\": 0}"))
                 .andExpect(status().isNoContent())
@@ -67,7 +67,7 @@ public class TransactionsControllerTest {
         doThrow(new InvalidTimestampException(""))
                 .when(statisticsService).record(any(Transaction.class));
 
-        mvc.perform(post("/v1/transactions")
+        mvc.perform(post("/transactions")
                             .contentType("application/json")
                             .content("{\"amount\": 12.3,\"timestamp\": 1478192204000}"))
                 .andExpect(status().isNoContent())

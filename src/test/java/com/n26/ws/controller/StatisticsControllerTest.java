@@ -39,7 +39,7 @@ public class StatisticsControllerTest {
                 .min(1.2)
                 .build());
 
-        mvc.perform(get("/v1/statistics").accept("application/json"))
+        mvc.perform(get("/statistics").accept("application/json"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith("application/json"))
                 .andExpect(jsonPath("count", is(5)))
@@ -53,7 +53,7 @@ public class StatisticsControllerTest {
     public void shouldReturnZeroStatistics() throws Exception {
         when(statisticsService.getTransactionStatistics()).thenReturn(TransactionStatistic.INITIAL_VALUE);
 
-        mvc.perform(get("/v1/statistics").accept("application/json"))
+        mvc.perform(get("/statistics").accept("application/json"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith("application/json"))
                 .andExpect(jsonPath("count", is(0)))
